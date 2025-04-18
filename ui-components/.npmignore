@@ -1,0 +1,8 @@
+# Ignore everything
+*
+
+# Except the following files/folders
+!dist/
+!package.json
+!README.md
+!LICENSE
