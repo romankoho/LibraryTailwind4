@@ -1,6 +1,5 @@
-@import "tailwindcss";
-
-@source "../node_modules/ui-components/dist/**/*.{js,jsx,ts,tsx}";
+@import 'tailwindcss';
+@import "../node_modules/ui-components/dist/theme.css";
 
 @theme {
     --color-neon-yellow: #eccb08;

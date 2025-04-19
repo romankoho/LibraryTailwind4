@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react'
-import '../src/lib/tailwind/theme.css'
+import './index.css'
 
 const preview: Preview = {
   tags: ['autodocs'],

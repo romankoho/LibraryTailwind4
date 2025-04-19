@@ -17,7 +17,7 @@
       "import": "./dist/ui-components.es.js",
       "require": "./dist/ui-components.umd.js"
     },
-    "./dist/ui-components.css": "./dist/ui-components.css"
+    "./dist/theme.css": "./dist/theme.css"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -115,7 +115,8 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.3.1",
     "tailwind-variants": "^1.0.0",
-    "tailwindcss": "^4.1.4"
+    "tailwindcss": "^4.1.4",
+    "vite-plugin-static-copy": "^2.3.1"
   },
   "devDependencies": {
     "@babel/core": "7.22.10",

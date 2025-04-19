@@ -4,6 +4,7 @@ import { defineConfig, type UserConfigExport } from 'vite'
 import dts from 'vite-plugin-dts'
 import { name } from './package.json'
 import tailwindcss from '@tailwindcss/vite'
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 const app = async (): Promise<UserConfigExport> => {
   /**
@@ -17,6 +18,14 @@ const app = async (): Promise<UserConfigExport> => {
     plugins: [
       react(),
       tailwindcss(),
+      viteStaticCopy({
+        targets: [
+          {
+            src: path.resolve(__dirname, 'src/lib/tailwind/theme.css'),
+            dest: './',
+          },
+        ],
+      }),
       dts({
         insertTypesEntry: true
       })
