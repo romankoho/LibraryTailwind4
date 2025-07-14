@@ -94,16 +94,3 @@ build: ## Builds the app for production to the build folder. It correctly bundle
 
 publish: ## publish all resources built by build command
 	@echo 'TODO: implement a publish target'
-
-publish-d3: build
-	aws s3 cp --recursive dist s3://metaroom-studio-gitlab-ci-bucket --cache-control "private, max-age=86400, s-maxage=86400, must-revalidate, stale-while-revalidate=600, stale-if-error=86400"
-	aws s3 cp dist/index.html s3://metaroom-studio-gitlab-ci-bucket/index.html --cache-control "private, no-cache, max-age=0, s-maxage=0"
-	aws s3 cp dist/config.json s3://metaroom-studio-gitlab-ci-bucket/config.json --cache-control "private, no-cache, max-age=0, s-maxage=0"
-	aws cloudfront create-invalidation --distribution-id E12KX2ZIQIFMHG --paths "/*"
-
-publish-d1: build
-	aws s3 cp --recursive dist s3://cloudfront-tweiss-metaroom --exclude "ort-*" --cache-control "private, max-age=86400, s-maxage=86400, must-revalidate, stale-while-revalidate=600, stale-if-error=86400"
-	aws s3 cp dist/index.html s3://cloudfront-tweiss-metaroom/index.html --cache-control "private, no-cache, max-age=0, s-maxage=0"
-	aws s3 cp dist/config.json s3://cloudfront-tweiss-metaroom/config.json --cache-control "private, no-cache, max-age=0, s-maxage=0"
-	aws s3 cp dist s3://cloudfront-tweiss-metaroom --recursive --exclude "*" --include "ort*" --cache-control "private, no-cache, max-age=0, s-maxage=0" --content-type "application/octet-stream"
-	aws cloudfront create-invalidation --distribution-id E363IHOYYMRZ6Y --paths "/*"
